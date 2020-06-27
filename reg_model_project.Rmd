@@ -33,6 +33,12 @@ your work.
 
 ## Part 1: Data
 
+This data set deals with the attributes of movies.This set has data about how much audiences and critics like movies as well as numerous other variables about the movies and it includes information from Rotten Tomatoes and IMDB for a random sample of movies.The data set is comprised of 651 randomly sampled movies produced and released before 2016.Each row represents a movies and answer some informational characteristics about them.
+
+**As random sampling was used to collect the data  so we can generalize the data for a bigger population.**
+
+**But we can do a casual inference because the has been no random assisgnment during the colllection of data.**
+
 
 * * *
 

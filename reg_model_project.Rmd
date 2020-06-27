@@ -37,14 +37,15 @@ This data set deals with the attributes of movies.This set has data about how mu
 
 **As random sampling was used to collect the data  so we can generalize the data for a bigger population.**
 
-**But we can do a casual inference because the has been no random assisgnment during the colllection of data.**
+**But we can do a casual inference because there has been no random assisgnment during the colllection of data.**
 
 
 * * *
 
 ## Part 2: Research question
 
-
+Here the given data is a collection of information and rating both imdb and rotten tomatoes for 651 movies those were released before 2016. From this data set I want to find out a linear regression model that fits for the IMDB ratings for a movie. Here my response variable will be IMDB ratings. I want know about the characteristics that make a movies more likely to get a better rating on IMDB. 
+I will be using the existing variables to answer the question without making any new ones.
 
 * * *
 

@@ -289,6 +289,8 @@ summary(m7)$adj.r.squared
 Here we can see adjusted r square does increase in model 7 if we eliminate variable best_pic_win from model 1.
 
 Thus **model 7** is my final selection.
+
+
 * * *
 
 ## Part 5: Prediction

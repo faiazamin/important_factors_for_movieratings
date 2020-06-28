@@ -25,7 +25,7 @@ your data file will be called `movies`. Delete this note when before you submit
 your work. 
 
 ```{r load-data}
-#load("movies.Rdata")
+load("movies.Rdata")
 ```
 
 
@@ -51,7 +51,7 @@ I will be using the existing variables to answer the question without making any
 
 ## Part 3: Exploratory data analysis
 
-Here as the exploratory data analysis I will see the relationship of variables critics_score, audience_score, best_pic_nom, best_pic_win , best_actor_win, best_actress_win, best_dir_win, top200_box with response variable imdb_rating.
+Here as the exploratory data analysis I will see the relationship of variables critics_score, audience_score, best_pic_nom, best_pic_win , best_actor_win, best_actress_win, best_dir_win, top200_box, director with response variable imdb_rating.
 
 I did not chose variables relating to the url, catagorical info about actors and DVD release/ theatre release date because these clearly do not seem to have any relation with imdb rating.
 
@@ -66,8 +66,8 @@ After this I will chose my secondary variables for modeling.
 Here I will examine the linear relations of variables critics_score, audience_score,best_pic_nom,best_pic_win, best_actor_win, best_actress_win, best_dir_win, top200_box with imdb_ratings one by one with help of histograme and residual plots.
 
 **(1)** we examine relatios between imdb_ratings and critics_score.
-```{r}
-critics_lm <- lm(formula = imdb_rating ~ critics_score, data = movies.Rdata)
+```{r }
+ critics_lm <- lm(formula = imdb_rating ~ critics_score, data = movies)
 
 summary(critics_lm)
 
@@ -79,7 +79,7 @@ ggplot(data = critics_lm, aes(x = .resid)) +
 ```
 Summary of this linear model shows a high adjused R square. Also the residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
 
-**(1)** we examine relatios between imdb_ratings and critics_score.
+**(2)** we examine relatios between imdb_ratings and audience_score
 ```{r}
 audience_lm <- lm(formula = imdb_rating ~ audience_score, data = movies)
 
@@ -91,10 +91,10 @@ ggplot(data = audience_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a high adjused R square. BUt the residual distributionn is nearly  noraml around zero (slightly left skewed). From this we can see a weaklinear relation beween this two variables.
+Summary of this linear model shows a high adjused R square. BUt the residual distributionn is nearly  noraml around zero (slightly left skewed). From this we can see a weak linear relation beween this two variables.
 
 
-**(1)** we examine relatios between imdb_ratings and critics_score.
+**(3)** we examine relatios between imdb_ratings and best_pic_nom
 ```{r}
 best_pic_nom_lm <- lm(formula = imdb_rating ~ best_pic_nom, data = movies)
 
@@ -109,7 +109,7 @@ ggplot(data = best_pic_nom_lm, aes(x = .resid)) +
 Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
 
 
-**(1)** we examine relatios between imdb_ratings and critics_score.
+**(4)** we examine relatios between imdb_ratings and best_pic_win
 ```{r}
 best_pic_win_lm <- lm(formula = imdb_rating ~ best_pic_win, data = movies)
 
@@ -124,7 +124,7 @@ ggplot(data = best_pic_win_lm, aes(x = .resid)) +
 Summary of this linear model shows a low adjused R square. BUt the residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
 
 
-**(1)** we examine relatios between imdb_ratings and critics_score.
+**(5)** we examine relatios between imdb_ratings and best_actor_win
 ```{r}
 best_actor_win_lm <- lm(formula = imdb_rating ~ best_actor_win, data = movies)
 
@@ -136,10 +136,10 @@ ggplot(data = best_actor_win_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a very weaklinear relation beween this two variables.
+Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a very weak linear relation beween this two variables.
 
 
-**(1)** we examine relatios between imdb_ratings and critics_score.
+**(6)** we examine relatios between imdb_ratings and best_actress_win
 ```{r}
 best_actress_win_lm <- lm(formula = imdb_rating ~ best_actress_win, data = movies)
 
@@ -151,10 +151,9 @@ ggplot(data = best_actress_win_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-From this we can see a  linear relation beween this two variables.
+Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a very weak linear relation beween this two variables.
 
-
-**(1)** we examine relatios between imdb_ratings and critics_score.
+**(7)** we examine relatios between imdb_ratings and best_dir_win.
 ```{r}
 best_dir_win_lm <- lm(formula = imdb_rating ~ best_dir_win, data = movies)
 
@@ -166,10 +165,9 @@ ggplot(data = best_dir_win_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-From this we can see a  linear relation beween this two variables.
+Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a very weak linear relation beween this two variables.
 
-
-**(1)** we examine relatios between imdb_ratings and critics_score.
+**(8)** we examine relatios between imdb_ratings and top200_box.
 ```{r}
 top200_box_lm <- lm(formula = imdb_rating ~ top200_box, data = movies)
 
@@ -181,14 +179,46 @@ ggplot(data = top200_box_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-From this we can see a  linear relation beween this two variables.
+Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a  weak linear relation beween this two variables.
+
+**(9)** we examine relatios between imdb_ratings and director.
+```{r}
+director_lm <- lm(formula = imdb_rating ~ director, data = movies)
+
+summary(director_lm)
+
+ggplot(data = director_lm, aes(sample = .resid)) + stat_qq() + stat_qq_line()
+
+ggplot(data = director_lm, aes(x = .resid)) +
+  geom_histogram() +
+  xlab("Residuals")
+```
+Summary of this linear model shows a high adjused R square. Also the residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
+
+**From our above exloration we see director, audience_score, critics_score, best_pic_win variables have a linear realtion with imdb_ratings.**
+
+
+### Section B: **Co-linearity Check**
+
+
+There is a co-linearity between audience_score and critics_score.
+```{r}
+cor(movies$audience_score,movies$critics_score)
+```
+So we can not choose both. **Here I will take critics_score because it serves a better model.**
 
 * * *
 ## Part 4: Modeling
+Now I will use **backward elemination** on adjusted R squares to chose my model.
 
-NOTE: Insert code chunks as needed by clicking on the "Insert a new code chunk" 
-button above. Make sure that your code is visible in the project you submit. 
-Delete this note when before you submit your work.
+I have selected director, audience_score, critics_score, best_pic_win variables for calculating model *parsimony*.
+
+At first we will check adjusted R squares including all variales.
+
+```{r}
+
+```
+
 
 * * *
 

@@ -75,7 +75,7 @@ ggplot(data = critics_lm, aes(x = .resid)) +
 ```
 Summary of this linear model shows a high adjusted R square. Also the residual distribution is nearly  normal around zero. From this we can see linear relation between these two variables.
 
-**(2)** We examine relations between imdb_ratings and audience_score
+**(2)** We examine relations between imdb_ratings and audience_score.
 ```{r}
 audience_lm <- lm(formula = imdb_rating ~ audience_score, data = movies)
 
@@ -90,7 +90,7 @@ ggplot(data = audience_lm, aes(x = .resid)) +
 Summary of this linear model shows a high adjusted R square. But the residual distribution is nearly  normal around zero (slightly left skewed). From this we can see a weak linear relation between these two variables.
 
 
-**(3)** We examine relations between imdb_ratings and best_pic_nom
+**(3)** We examine relations between imdb_ratings and best_pic_nom.
 ```{r}
 best_pic_nom_lm <- lm(formula = imdb_rating ~ best_pic_nom, data = movies)
 
@@ -120,7 +120,7 @@ ggplot(data = best_pic_win_lm, aes(x = .resid)) +
 Summary of this linear model shows a low adjusted R square. BUt the residual distribution is nearly  normal around zero. From this we can see a linear relation between these two variables.
 
 
-**(5)** We examine relations between imdb_ratings and best_actor_win
+**(5)** We examine relations between imdb_ratings and best_actor_win.
 ```{r}
 best_actor_win_lm <- lm(formula = imdb_rating ~ best_actor_win, data = movies)
 
@@ -135,7 +135,7 @@ ggplot(data = best_actor_win_lm, aes(x = .resid)) +
 Summary of this linear model shows a low adjusted R square. The residual distribution is nearly  normal around zero but it lacks constant variance. From this we can see a very weak linear relation between these two variables.
 
 
-**(6)** We examine relations between imdb_ratings and best_actress_win
+**(6)** We examine relations between imdb_ratings and best_actress_win.
 ```{r}
 best_actress_win_lm <- lm(formula = imdb_rating ~ best_actress_win, data = movies)
 
@@ -192,7 +192,7 @@ ggplot(data = director_lm, aes(x = .resid)) +
 Summary of this linear model shows a high adjusted R square. Also the residual distributiodistributionnn is nearly  normal around zero. From this we can see a linear relation between these two variables.
 
 
-**(10)** we examine relations between imdb_ratings and genre
+**(10)** we examine relations between imdb_ratings and genre.
 ```{r}
 genre_lm <- lm(formula = imdb_rating ~ genre, data = movies)
 

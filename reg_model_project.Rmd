@@ -306,10 +306,23 @@ new_movie <- data.frame(director = "Christopher Nolan", audience_score = 88, bes
 
 predict(m1, new_movie, interval = "prediction", level = 0.95)
 ```
+ From this we can say that we are 95% confident about the imdb ratings for the movie "Dunkirk" is **expected** to be in between 7.488698 and 9.123914. 
+ 
+My Multiple linear model shows the rating is *expected* to be 8.306306.
 
+The actual imdb rating for this movie is 7.9. My findings is prettty close to the actual rating.
 
 * * *
 ## Part 6: Conclusion
 
+I tried every potential variables that can be a possible predictor of imdb rating. I explored their relationship with the ratings with the help linear modeling and plots. I also checked the colinearity between my most potential variables.
+
+After that I used backward elimination to find out the best model for my question.
+
+My model predicts the imdb rating for any movie almost 95% accurately.
+
+From my study I learned important three charecteristics for any movie to have notable impact on its imdb ratings. As my result is not 100% accurate, there is obviously some shortcoming. This shortcoming can be overcome if there were more variables/Info in the data that were related to imdb ratings. Then we can have a more precise model with variables that make a moviemore likely to get a better rating on IMDB.
 
 
+
+##Thank you.

@@ -30,7 +30,7 @@ load("movies.Rdata")
 
 ## Part 1: Data
 
-This data set deals with the attributes of movies.This set has data about how much audiences and critics like movies as well as numerous other variables about the movies and it includes information from Rotten Tomatoes and IMDB for a random sample of movies.The data set is comprised of 651 randomly sampled movies produced and released before 2016.Each row represents a movies and answer some informational characteristics about them.
+This data set deals with the attributes of movies.This set has data about how much audiences and critics like the movies as well as numerous other variables about the movies and information from Rotten Tomatoes and IMDB for a random sample of movies.The data set is comprised of 651 randomly sampled movies produced and released before 2016.Each row represents a movies and answer some informational characteristics about them.
 
 **As random sampling was used to collect the data  so we can generalize the data for a bigger population.**
 
@@ -42,7 +42,7 @@ This data set deals with the attributes of movies.This set has data about how mu
 ## Part 2: Research question
 
 Here the given data is a collection of information and rating both imdb and rotten tomatoes for 651 movies those were released before 2016. From this data set I want to find out a linear regression model that fits for the IMDB ratings for a movie. Here my response variable will be IMDB ratings. I want know about the characteristics that make a movies more likely to get a better rating on IMDB. 
-I will be using the existing variables to answer the question without making any new ones.
+I will be using the existing variables on the given dataset to answer the question without making any new ones.
 
 * * *
 
@@ -54,15 +54,14 @@ I did not chose variables relating to the url, catagorical info about actors and
 
 Here **I will use linear modeling and their residual plots to determine linearity**. **Then I will use corelation co-efficient for examining any colinear relationship.** 
 
-From the results I will chose my suitable variables for *colinearity testing*.
 
 After this I will chose my secondary variables for modeling.
 
 ### Section A: **Linearity Check**
 
-Here I will examine the linear relations of variables genre, critics_score, audience_score,best_pic_nom,best_pic_win, best_actor_win, best_actress_win, best_dir_win, top200_box with imdb_ratings one by one with help of histograme and residual plots.
+Here I will examine the linear relations of variables genre, critics_score, audience_score,best_pic_nom,best_pic_win, best_actor_win, best_actress_win, best_dir_win, top200_box with imdb_ratings one by one with help of histogram and residual plots.
 
-**(1)** we examine relatios between imdb_ratings and critics_score.
+**(1)** We examine relations between imdb_ratings and critics_score.
 ```{r }
  critics_lm <- lm(formula = imdb_rating ~ critics_score, data = movies)
 
@@ -74,9 +73,9 @@ ggplot(data = critics_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a high adjused R square. Also the residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
+Summary of this linear model shows a high adjusted R square. Also the residual distribution is nearly  normal around zero. From this we can see linear relation between these two variables.
 
-**(2)** we examine relatios between imdb_ratings and audience_score
+**(2)** We examine relations between imdb_ratings and audience_score
 ```{r}
 audience_lm <- lm(formula = imdb_rating ~ audience_score, data = movies)
 
@@ -88,10 +87,10 @@ ggplot(data = audience_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a high adjused R square. BUt the residual distributionn is nearly  noraml around zero (slightly left skewed). From this we can see a weak linear relation beween this two variables.
+Summary of this linear model shows a high adjusted R square. But the residual distribution is nearly  normal around zero (slightly left skewed). From this we can see a weak linear relation between these two variables.
 
 
-**(3)** we examine relatios between imdb_ratings and best_pic_nom
+**(3)** We examine relations between imdb_ratings and best_pic_nom
 ```{r}
 best_pic_nom_lm <- lm(formula = imdb_rating ~ best_pic_nom, data = movies)
 
@@ -103,10 +102,10 @@ ggplot(data = best_pic_nom_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
+Summary of this linear model shows a low adjusted R square. The residual distribution is nearly  normal around zero. From this we can see linear relation between these two variables.
 
 
-**(4)** we examine relatios between imdb_ratings and best_pic_win
+**(4)** We examine relations between imdb_ratings and best_pic_win.
 ```{r}
 best_pic_win_lm <- lm(formula = imdb_rating ~ best_pic_win, data = movies)
 
@@ -118,10 +117,10 @@ ggplot(data = best_pic_win_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a low adjused R square. BUt the residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
+Summary of this linear model shows a low adjusted R square. BUt the residual distribution is nearly  normal around zero. From this we can see a linear relation between these two variables.
 
 
-**(5)** we examine relatios between imdb_ratings and best_actor_win
+**(5)** We examine relations between imdb_ratings and best_actor_win
 ```{r}
 best_actor_win_lm <- lm(formula = imdb_rating ~ best_actor_win, data = movies)
 
@@ -133,10 +132,10 @@ ggplot(data = best_actor_win_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a very weak linear relation beween this two variables.
+Summary of this linear model shows a low adjusted R square. The residual distribution is nearly  normal around zero but it lacks constant variance. From this we can see a very weak linear relation between these two variables.
 
 
-**(6)** we examine relatios between imdb_ratings and best_actress_win
+**(6)** We examine relations between imdb_ratings and best_actress_win
 ```{r}
 best_actress_win_lm <- lm(formula = imdb_rating ~ best_actress_win, data = movies)
 
@@ -148,9 +147,9 @@ ggplot(data = best_actress_win_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a very weak linear relation beween this two variables.
+Summary of this linear model shows a low adjusted R square. The residual distribution is nearly  normal around zero but it lacks constant variance. From this we can see a very weak linear relation between these two variables.
 
-**(7)** we examine relatios between imdb_ratings and best_dir_win.
+**(7)** we examine relations between imdb_ratings and best_dir_win.
 ```{r}
 best_dir_win_lm <- lm(formula = imdb_rating ~ best_dir_win, data = movies)
 
@@ -162,9 +161,9 @@ ggplot(data = best_dir_win_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a very weak linear relation beween this two variables.
+Summary of this linear model shows a low adjusted R square. The residual distribution is nearly  normal around zero but it lacks constant variance. From this we can see a very weak linear relation between these two variables.
 
-**(8)** we examine relatios between imdb_ratings and top200_box.
+**(8)** we examine relations between imdb_ratings and top200_box.
 ```{r}
 top200_box_lm <- lm(formula = imdb_rating ~ top200_box, data = movies)
 
@@ -176,9 +175,9 @@ ggplot(data = top200_box_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a low adjused R square. The residual distributionn is nearly  noraml around zero but it lacks constant variance. From this we can see a  weak linear relation beween this two variables.
+Summary of this linear model shows a low adjusted R square. The residual distribution is nearly  normal around zero but it lacks constant variance. From this we can see a  weak linear relation between these two variables.
 
-**(9)** we examine relatios between imdb_ratings and director.
+**(9)** we examine relations between imdb_ratings and director.
 ```{r}
 director_lm <- lm(formula = imdb_rating ~ director, data = movies)
 
@@ -190,10 +189,10 @@ ggplot(data = director_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a high adjused R square. Also the residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
+Summary of this linear model shows a high adjusted R square. Also the residual distributiodistributionnn is nearly  normal around zero. From this we can see a linear relation between these two variables.
 
 
-**(10)** we examine relatios between imdb_ratings and genre
+**(10)** we examine relations between imdb_ratings and genre
 ```{r}
 genre_lm <- lm(formula = imdb_rating ~ genre, data = movies)
 
@@ -205,9 +204,9 @@ ggplot(data = genre_lm, aes(x = .resid)) +
   geom_histogram() +
   xlab("Residuals")
 ```
-Summary of this linear model shows a high adjused R square. Also the residual distributionn is nearly  noraml around zero. From this we can see linear relation beween this two variables.
+Summary of this linear model shows a high adjusted R square. Also the residual distribution is nearly  normal around zero. From this we can see a linear relation between these two variables.
 
-**From our above exloration we see director, audience_score, critics_score, best_pic_win variables have a linear realtion with imdb_ratings.**
+**From our above exploration we can see genre, director, audience_score, critics_score, best_pic_win variables have a linear realtion with imdb_ratings.**
 
 
 ### Section B: **Co-linearity Check**
@@ -238,7 +237,7 @@ Now I will eleminate each variable and check the adjusted r square value for tha
 ```{r}
 m1 <- lm(formula = imdb_rating ~ director + audience_score + best_pic_win, data = movies) 
 
-summary(m0)$adj.r.squared
+summary(m1)$adj.r.squared
 ```
 
 **model 2: **(eliminating director)
@@ -246,66 +245,66 @@ summary(m0)$adj.r.squared
 ```{r}
 m2 <- lm(formula = imdb_rating ~ genre + audience_score + best_pic_win, data = movies) 
 
-summary(m0)$adj.r.squared
+summary(m2)$adj.r.squared
 ```
 **model 3: **(eliminating audience_score)
 
 ```{r}
 m3 <- lm(formula = imdb_rating ~ genre + director + best_pic_win, data = movies) 
 
-summary(m0)$adj.r.squared
+summary(m3)$adj.r.squared
 ```
 
 **model 4: **(eliminating best_pic_win)
 ```{r}
 m4 <- lm(formula = imdb_rating ~ director + audience_score + genre, data = movies) 
 
-summary(m0)$adj.r.squared
+summary(m4)$adj.r.squared
 ```
 
 At this point of our analysis model 1 has the most adjusted r square value. Now we will eliminate each variable from model 1 once and check adjusted r square.
 
 **model 5: **(eliminating director from model 1)
 ```{r}
-m5 <- lm(formula = imdb_rating ~  audience_score + genre, data = movies) 
+m5 <- lm(formula = imdb_rating ~  audience_score + best_pic_win, data = movies) 
 
-summary(m0)$adj.r.squared
+summary(m5)$adj.r.squared
 ```
 
 
 **model 6: **(eliminating audience_score from model 1)
 ```{r}
-m5 <- lm(formula = imdb_rating ~  director + genre, data = movies) 
+m6 <- lm(formula = imdb_rating ~  director + best_pic_win, data = movies) 
 
-summary(m0)$adj.r.squared
+summary(m6)$adj.r.squared
 ```
 
 **model 7: **(eliminating genre from model 1)
 ```{r}
-m5 <- lm(formula = imdb_rating ~  audience_score + director, data = movies) 
+m7 <- lm(formula = imdb_rating ~  audience_score + director, data = movies) 
 
-summary(m0)$adj.r.squared
+summary(m7)$adj.r.squared
 ```
 
-Here we can see adjusted r square does not increase if we eliminate any variable from model 1.
+Here we can see adjusted r square does increase in model 7 if we eliminate variable best_pic_win from model 1.
 
-Thus **model 1** is my final selention.
+Thus **model 7** is my final selection.
 * * *
 
 ## Part 5: Prediction
 
 I Will use my linear model described above to predict the imdb ratings for the movie "Dunkirk". 
-For this prediction I will need the name of the director, audience score from rotten tomaotes and genre.
-This is an action film directed by Christoppher Nolan. my pridiction for this film.
+For this prediction I will need the name of the director, audience score from rotten tomatoes.
+"Dunkirk" is an action film directed by Christoppher Nolan with an audience rating of 88%. My prediction for this film.
 
 ```{r}
-new_movie <- data.frame(director = "Christopher Nolan", audience_score = 88, best_pic_win = "no")
+new_movie <- data.frame(director = "Christopher Nolan", audience_score = 88)
 
-predict(m1, new_movie, interval = "prediction", level = 0.95)
+predict(m7, new_movie, interval = "prediction", level = 0.95)
 ```
- From this we can say that we are 95% confident about the imdb ratings for the movie "Dunkirk" is **expected** to be in between 7.488698 and 9.123914. 
+ From this we can say that we are 95% confident about the imdb ratings for the movie "Dunkirk" is **expected** to be in between 7.488239  and 9.121181. 
  
-My Multiple linear model shows the rating is *expected* to be 8.306306.
+My Multiple Linear Regression  model shows the rating is *expected* to be 8.30471.
 
 The actual imdb rating for this movie is 7.9. My findings is prettty close to the actual rating.
 
@@ -318,7 +317,7 @@ After that I used backward elimination to find out the best model for my questio
 
 My model predicts the imdb rating for any movie almost 95% accurately.
 
-From my study I learned important three charecteristics for any movie to have notable impact on its imdb ratings. As my result is not 100% accurate, there is obviously some shortcoming. This shortcoming can be overcome if there were more variables/Info in the data that were related to imdb ratings. Then we can have a more precise model with variables that make a moviemore likely to get a better rating on IMDB.
+From my study I learned important three charecteristics for any movie to have notable impact on its imdb ratings. As my result is not 100% accurate, there is obviously some shortcomings. These shortcomings can be overcome if there were more variables/Info in the data that were related to imdb ratings. Then we can have a more precise model with variables that make a movie more likely to get a better rating on IMDB.
 
 
 

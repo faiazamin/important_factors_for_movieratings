@@ -20,9 +20,6 @@ library(GGally)
 
 ### Load data
 
-Make sure your data and R Markdown files are in the same directory. When loaded
-your data file will be called `movies`. Delete this note when before you submit 
-your work. 
 
 ```{r load-data}
 load("movies.Rdata")
@@ -37,7 +34,7 @@ This data set deals with the attributes of movies.This set has data about how mu
 
 **As random sampling was used to collect the data  so we can generalize the data for a bigger population.**
 
-**But we can do a casual inference because there has been no random assisgnment during the colllection of data.**
+**But we can not do a casual inference because there has been no random assisgnment during the colllection of data.**
 
 
 * * *

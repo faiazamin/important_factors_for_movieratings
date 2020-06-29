@@ -290,8 +290,46 @@ Here we can see adjusted r square does increase in model 7 if we eliminate varia
 
 Thus **model 7** is my final selection.
 
+###Model Dianostics##
 
-* * *
+
+My model depends on the following assumptions.
+```{r}
+
+```
+
+* The residuals of the model are nearly normal.
+
+* The variablility of the residuals is nearly constant.
+
+First let us see the histogram of the residual.
+
+```{r}
+m7 <- lm(formula = imdb_rating ~  audience_score + director, data = movies) 
+
+ggplot(data = m7, aes(x = .resid)) +
+  geom_histogram(binwidth = 0.41684965465) +
+  xlab("Residuals")
+```
+
+The distribution is nearly normal and centred around zero.
+
+Now we check the variability of the residuals.
+```{r}
+ggplot(data = best_actress_win_lm, aes(sample = .resid)) + stat_qq() + stat_qq_line()
+```
+Residuals have constant variance.
+
+### Interpretations of the co-efficients
+
+We can find the co-efficients of the model from summary. Here as we have used director as our model variable it has one co-efficient for each director. 
+
+
+It means if every other things held constant the imdb rating for a movie will change according to co-efficient related to its director. If the co-efficient is (+)ive then the rating will go up by *respective co-efficient*. Otherwise it goes down.
+
+Similar case is for the audience score. If every other things held constant the imdb rating for a movie will go up by audience_score multiplied by the co-efficient.
+
+* * * 
 
 ## Part 5: Prediction
 
